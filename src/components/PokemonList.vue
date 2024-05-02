@@ -1,4 +1,10 @@
 <template>
+    <div class="pokemon-list-container">
+        <!-- Aquí irá el código actual de la lista de Pokémon -->
+
+        <!-- Agregar el componente de inventario -->
+        <PokemonInventory :pokeballs="pokeballs" :potions="potions" :elixirs="elixirs" />
+    </div>
     <div>
         <!-- Menú desplegable para seleccionar el tipo de Pokémon -->
         <select v-model="selectedType">
@@ -25,6 +31,7 @@
 </template>
 
 <script>
+import PokemonInventory from './PokemonInventory.vue';
 import PokemonCard from './PokemonCard.vue'; // Importa el componente PokemonCard.vue
 
 export default {
@@ -35,11 +42,24 @@ export default {
         },
         pokemonTypes: {
             type: Array,
+            required: true  
+        },
+        pokeballs: {
+            type: Array,
+            required: true
+        },
+        potions: {
+            type: Array,
+            required: true
+        },
+        elixirs: {
+            type: Array,
             required: true
         }
     },
     components: {
-        PokemonCard
+        PokemonCard,
+        PokemonInventory
     },
     data() {
         return {
