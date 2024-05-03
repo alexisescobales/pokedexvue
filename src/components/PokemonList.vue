@@ -1,9 +1,7 @@
 <template>
     <div class="pokemon-list-container">
-        <!-- Aquí irá el código actual de la lista de Pokémon -->
-
         <!-- Agregar el componente de inventario -->
-        <PokemonInventory :pokeballs="pokeballs" :potions="potions" :elixirs="elixirs" />
+        <PokemonInventory :pokeballs="pokeballs" :masterball="masterballs" :ultraball="ultraballs" :potions="potions" :elixirs="elixirs" />
     </div>
     <div>
         <!-- Menú desplegable para seleccionar el tipo de Pokémon -->
@@ -38,24 +36,13 @@ export default {
     props: {
         pokemons: {
             type: Array,
-            required: true
+            required: true,
         },
+        
         pokemonTypes: {
             type: Array,
             required: true  
         },
-        pokeballs: {
-            type: Array,
-            required: true
-        },
-        potions: {
-            type: Array,
-            required: true
-        },
-        elixirs: {
-            type: Array,
-            required: true
-        }
     },
     components: {
         PokemonCard,
@@ -137,11 +124,18 @@ body {
 </style>
 
 <style scoped>
+.pokemon-list-container {
+  display: flex;
+  width: 100%; /* Ajusta el ancho según sea necesario */
+}
 .pokemon-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     /* Define columnas de ancho flexible */
     gap: 20px;
+}
+.pokemon-list-container {
+  display: flex;
 }
 
 .team-list {
