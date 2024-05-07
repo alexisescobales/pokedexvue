@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <!-- Componente PokemonList -->
-    <!-- Propiedades: pokemons y pokemonTypes -->
     <!-- pokemons: lista de todos los pokémon -->
     <!-- pokemonTypes: lista de tipos de pokémon -->
     <PokemonList :pokemons="pokemons" :pokemonTypes="pokemonTypes" />
