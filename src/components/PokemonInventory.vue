@@ -1,6 +1,6 @@
 <template>
+  <!-- Mostramos el inventario -->
   <div class="inventory-container">
-    <!-- Componente de inventario -->
     <div class="inventory">
       <h1>Inventario</h1>
       <div class="item" v-for="(item, index) in items" :key="index">
@@ -17,6 +17,7 @@
 
 <script>
 
+// Guardamos aqui el objeto items (INVENTARIO)
 export default {
   props: {
     items: {

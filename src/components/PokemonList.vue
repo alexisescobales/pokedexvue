@@ -4,7 +4,7 @@
       <PokemonInventory :items="inventoryItems" />
 
       <!-- Agregar el componente de la tienda -->
-      <PokemonShop :items="shopItems" @buy-item="buyItemHandler" />
+      <PokemonShop :items="shopItems" :itemsInventory="inventoryItems" @buy-item="buyItemHandler" />
     </div>
     <div>
       <!-- Menú desplegable para seleccionar el tipo de Pokémon -->
@@ -158,6 +158,13 @@ body {
 </style>
 
 <style scoped>
+
+.icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
 .pokemon-list-container {
     display: flex;
     width: 100%;
