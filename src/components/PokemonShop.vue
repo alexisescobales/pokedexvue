@@ -31,14 +31,15 @@ export default {
   },
   data() {
     return {
-      maxPokeballs: 15, // Máximo de pokeballs permitidas
-      maxPotions: 5 // Máximo de pociones permitidas
+      maxPokeballs: 15, // Maximo de pokeballs permitidas
+      maxPotions: 5 // Maximo de pociones permitidas
     };
   },
   methods: {
     buyItem(item) {
       // Encuentra el ítem correspondiente en el inventario del jugador
       const inventoryItem = this.itemsInventory.find(invItem => invItem.name === item.name);
+
       if (inventoryItem && item.quantity > 0) {
         switch (item.name) {
           case 'Pokeball':
@@ -53,7 +54,7 @@ export default {
           case 'Poción':
           case 'Elixir':
             if (inventoryItem.quantity + item.quantity > inventoryItem.maxQuantity) {
-              alert('¡Has alcanzado el máximo de Pociones permitidas en tu inventario!');
+              alert('¡Has alcanzado el máximo de Utilidades permitidas en tu inventario!');
               item.quantity = 0;
               return;
             }
@@ -62,7 +63,7 @@ export default {
 
         // Emitir un evento para indicar que se ha realizado una compra
         this.$emit('buy-item', item);
-        // Establecer la cantidad a cero después de la compra
+        // Establecer la cantidad a cero despues de la compra
         item.quantity = 0;
       }
     },
@@ -72,8 +73,8 @@ export default {
       }
     },
     increaseQuantity(item) {
-      // Verificar si se excede el máximo permitido antes de aumentar la cantidad
-      if (item.name === 'Pokeball' && item.quantity + 1 > this.maxPokeballs) {
+      // Verificar si se excede el maximo permitido antes de aumentar la cantidad
+      if (item.name === 'Pokeball','Ultraball' && item.quantity + 1 > this.maxPokeballs) {
         alert('¡Has alcanzado el máximo de pokeballs permitidas!');
         return;
       }
@@ -82,6 +83,7 @@ export default {
         return;
       }
 
+      //Suma la cantidad
       if (item.quantity < item.maxQuantity) {
         item.quantity++;
       }
@@ -103,9 +105,7 @@ export default {
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.8);
-  /* Fondo semi-transparente */
   padding: 10px;
-  /* Añadir un poco de espacio alrededor del contenido */
   color: whitesmoke;
 }
 </style>

@@ -35,9 +35,7 @@ export default {
   top: 50%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.8);
-  /* Fondo semi-transparente */
   padding: 10px;
-  /* Añadir un poco de espacio alrededor del contenido */
 }
 
 .inventory {
