@@ -20,6 +20,8 @@
       <!-- Filtro de Pokemons del equipo -->
       <label for="filter-team">Pokemons en Equipo:</label>
       <input type="checkbox" id="filter-team" v-model="showTeam"> <br>
+
+      <RangeFilter :levelRange="levelRange" :minLevel="minLevel" :maxLevel="maxLevel" /><br>
   
       <!-- Lista de Pokemons filtrada -->
       <div class="pokemon-list">
@@ -34,12 +36,14 @@
   import PokemonInventory from './PokemonInventory.vue'; // Importa el componente de el Inventario
   import PokemonShop from './PokemonShop.vue'; // Importa el componente de la tienda
   import PokemonCard from './PokemonCard.vue'; // Importa el componente PokemonCard.vue
+  import RangeFilter from './RangeFilter.vue';
   
   export default {
     components: {
       PokemonInventory, // Agrega inventario a los componentes utilizados
       PokemonShop, // Agrega tienda a los componentes utilizados
-      PokemonCard // Agrega PokemonCard a los componentes utilizados
+      PokemonCard, // Agrega PokemonCard a los componentes utilizados
+      RangeFilter 
     },
     props: {
       pokemons: {
@@ -58,6 +62,10 @@
         showFavorites: false, // Para controlar mostrar solo los Pokemon favoritos
         showTeam: false, // Para controlar mostrar solo los Pokemon del equipo
         selectedType: '', // Tipo de Pokemon seleccionado en el menu desplegable
+        levelRange: {
+        min: 1, // Nivel mínimo del rango
+        max: 100 // Nivel máximo del rango
+      },
         inventoryItems: [ // Inicializa los datos del inventario
           { name: 'Pokeball', icon: require('../assets/pokeball.png'), quantity: 0, maxQuantity: 15 },
           { name: 'Masterball', icon: require('../assets/masterball.png'), quantity: 0, maxQuantity: 15 },
